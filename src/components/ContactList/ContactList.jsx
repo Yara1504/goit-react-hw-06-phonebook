@@ -5,9 +5,7 @@ import css from './ContactList.module.css';
 
 const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector((state) =>
-    state.filteredContacts ? state.filteredContacts : state.contacts
-  );
+  const contacts = useSelector((state) => (state.filter ? state.filteredContacts : state.contacts));
 
   return (
     <ul className={css.list}>
@@ -20,11 +18,7 @@ const ContactList = () => {
             <div>
               <p className={css.name}>{number}</p>
             </div>
-            <button
-              type="button"
-              onClick={() => dispatch(deleteContact(id))}
-              className={css.button}
-            >
+            <button type="button" onClick={() => dispatch(deleteContact(id))} className={css.button}>
               Delete
             </button>
           </div>

@@ -17,7 +17,7 @@ const ContactForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const isDuplicate = contacts.some((contact) => contact.name === formData.name);
+    const isDuplicate = formData.name && contacts.some((contact) => contact.name === formData.name);
 
     if (isDuplicate) {
       alert(`${formData.name} is already in contacts`);
@@ -34,21 +34,9 @@ const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit} className={css.form}>
       <label className={css.name}>Name</label>
-      <input
-        className={css.input}
-        onChange={inputChange}
-        type="text"
-        name="name"
-        value={formData.name}
-      />
+      <input className={css.input} onChange={inputChange} type="text" name="name" value={formData.name} />
       <label className={css.name}>Number</label>
-      <input
-        className={css.input}
-        onChange={inputChange}
-        type="tel"
-        name="number"
-        value={formData.number}
-      />
+      <input className={css.input} onChange={inputChange} type="tel" name="number" value={formData.number} />
       <button type="submit" className={css.button}>
         Add contact
       </button>
