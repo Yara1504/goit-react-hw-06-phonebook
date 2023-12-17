@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateFilter, filteredContacts } from '../../redux/contactsSlice';
+import { updateFilter } from '../../redux/contactsSlice';
 import css from './Filter.module.css';
 
 const Filter = () => {
@@ -9,7 +9,6 @@ const Filter = () => {
 
   const changeFilter = (event) => {
     dispatch(updateFilter(event.currentTarget.value));
-    dispatch(filteredContacts()); 
   };
 
   return (

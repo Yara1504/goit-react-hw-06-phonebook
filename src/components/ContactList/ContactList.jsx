@@ -5,11 +5,16 @@ import css from './ContactList.module.css';
 
 const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector((state) => (state.filter ? state.filteredContacts : state.contacts));
+  const filteredContacts = useSelector((state) => {
+    const filtered = state.contacts.filter((contact) =>
+      contact.name.toLowerCase().includes(state.filter.toLowerCase())
+    );
+    return filtered;
+  });
 
   return (
     <ul className={css.list}>
-      {contacts.map(({ id, name, number }) => (
+      {filteredContacts.map(({ id, name, number }) => (
         <li key={id}>
           <div className={css.div}>
             <div>

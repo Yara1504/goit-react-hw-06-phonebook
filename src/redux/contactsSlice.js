@@ -15,14 +15,8 @@ const contactsSlice = createSlice({
     updateFilter: (state, action) => {
       state.filter = action.payload;
     },
-    filteredContacts: (state) => {
-      const filtered = state.contacts.filter((contact) =>
-        contact.name.toLowerCase().includes(state.filter.toLowerCase())
-      );
-    return { ...state, filteredContacts: filtered };
-    },
   },
 });
 
-export const { addContact, deleteContact, updateFilter, filteredContacts } = contactsSlice.actions;
+export const { addContact, deleteContact, updateFilter } = contactsSlice.actions;
 export default contactsSlice.reducer;

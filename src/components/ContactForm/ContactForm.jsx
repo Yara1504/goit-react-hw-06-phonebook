@@ -21,6 +21,7 @@ const ContactForm = () => {
 
     if (isDuplicate) {
       alert(`${formData.name} is already in contacts`);
+      reset();
     } else {
       dispatch(addContact(formData));
       reset();
